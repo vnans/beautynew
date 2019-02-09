@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astuce index{% endblock %}
+
+{% block body %}
+    <h1>Astuce index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Image</th>
+                <th>Ladate</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for astuce in astuces %}
+            <tr>
+                <td>{{ astuce.id }}</td>
+                <td>{{ astuce.titre }}</td>
+                <td>{{ astuce.contenu }}</td>
+                <td>{{ astuce.image }}</td>
+                <td>{{ astuce.ladate ? astuce.ladate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ astuce.slug }}</td>
+                <td>
+                    <a href="{{ path('astuce_show', {'id': astuce.id}) }}">show</a>
+                    <a href="{{ path('astuce_edit', {'id': astuce.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('astuce_new') }}">Create new</a>
+{% endblock %}

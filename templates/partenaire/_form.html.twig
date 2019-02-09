@@ -1,0 +1,13 @@
+ {{ form_start(form) }}
+    <div class="form-group">
+     <label>Nom  </label>
+       {{ form_widget(form.libelle , {'attr':{ 'class': 'form-control' }}) }}
+    {#  <p class="help-block">Donnez un titre a votre article.</p> #}
+   </div>
+     <div class="form-group">
+      <label>Selectionner une image</label>
+       {{ form_widget(form.image ) }}
+    </div>
+  
+<button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

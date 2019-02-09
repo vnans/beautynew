@@ -1,0 +1,11 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}New Partenaire{% endblock %}
+
+{% block body %}
+        <h1>Ajouter un partenaire</h1>
+
+    {{ include('partenaire/_form.html.twig') }}
+
+    <a href="{{ path('partenaire_index') }}">back to list</a>
+{% endblock %}
