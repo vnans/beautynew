@@ -1,0 +1,9 @@
+server_name:
+    scheme: ftp
+    host: ftp.moser-ci.com
+    port: 21
+    user: beautynews@beautynews.alcalis.tech
+    pass: Alcalis19
+    check: true
+    path: 
+        remote: /
