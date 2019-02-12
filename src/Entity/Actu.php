@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo; 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActuRepository")
@@ -32,6 +33,8 @@ class Actu
     private $ladate;
 
     /**
+     *@var string 
+     *@Gedmo\Slug(fields={"titre"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $slug;

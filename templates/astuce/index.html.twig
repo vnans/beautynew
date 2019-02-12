@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
-{% block title %}Astuce index{% endblock %}
+{% block title %}Astuce liste{% endblock %}
 
 {% block body %}
-    <h1>Astuce index</h1>
+    <h1>Astuces</h1>
 
     <table class="table">
         <thead>
@@ -27,17 +27,17 @@
                 <td>{{ astuce.ladate ? astuce.ladate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ astuce.slug }}</td>
                 <td>
-                    <a href="{{ path('astuce_show', {'id': astuce.id}) }}">show</a>
-                    <a href="{{ path('astuce_edit', {'id': astuce.id}) }}">edit</a>
+                  {#   <a href="{{ path('astuce_show', {'id': astuce.id}) }}">Afficher</a> #}
+                    <a href="{{ path('astuce_edit', {'id': astuce.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun enrégistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('astuce_new') }}">Create new</a>
+    <a href="{{ path('astuce_new') }}">Nouveau</a>
 {% endblock %}

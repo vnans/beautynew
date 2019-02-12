@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
-{% block title %}Video index{% endblock %}
+{% block title %}Video liste{% endblock %}
 
 {% block body %}
-    <h1>Video index</h1>
+    <h1>Video liste</h1>
 
     <table class="table">
         <thead>
@@ -21,19 +21,19 @@
                 <td>{{ video.id }}</td>
                 <td>{{ video.titre }}</td>
                 <td>{{ video.lien }}</td>
-                <td>{{ video.ladate }}</td>
+                <td>{{ video.ladate ? video.ladate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('video_show', {'id': video.id}) }}">show</a>
-                    <a href="{{ path('video_edit', {'id': video.id}) }}">edit</a>
+                  {#   <a href="{{ path('video_show', {'id': video.id}) }}">show</a> #}
+                    <a href="{{ path('video_edit', {'id': video.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enrégistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('video_new') }}">Create new</a>
+    <a href="{{ path('video_new') }}">Nouveau</a>
 {% endblock %}

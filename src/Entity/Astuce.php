@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo; 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AstuceRepository")
@@ -37,6 +38,8 @@ class Astuce
     private $ladate;
 
     /**
+     *@var string 
+     *@Gedmo\Slug(fields={"titre"})
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -76,12 +79,12 @@ class Astuce
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage( $image): self
     {
         $this->image = $image;
 

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {% block title %}Contact index{% endblock %}
 
@@ -12,7 +12,7 @@
                 <th>Adresse</th>
                 <th>Tel</th>
                 <th>Email</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,17 +23,17 @@
                 <td>{{ contact.tel }}</td>
                 <td>{{ contact.email }}</td>
                 <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
+                    {# <a href="{{ path('contact_show', {'id': contact.id}) }}">Afficher</a> #}
+                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enrégistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('contact_new') }}">Create new</a>
+    <a href="{{ path('contact_new') }}">Nouveau</a>
 {% endblock %}

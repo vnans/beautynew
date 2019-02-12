@@ -179,17 +179,17 @@
         <p>Toute l'actualité</p>
       </div>
 
-      <ul class="nav nav-tabs" role="tablist">
+     {#  <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Day 1</a>
+          <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Page 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Day 2</a>
+          <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Page 2</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Day 3</a>
+          <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Page 3</a>
         </li>
-      </ul>
+      </ul> #}
 
       <h3 class="sub-heading">actuellement en cote d'ivoire.</h3>
 
@@ -398,14 +398,16 @@
     <div class="container-fluid venue-gallery-container">
       <div class="row no-gutters">
 {% for video in videos %}
-  <div class="col-lg-3 col-md-4">
+        <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
             <div class="embed-responsive embed-responsive-16by9">
-             {{ video.lien }}
+              <iframe width="560" height="315" src="{{ video.lien }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             
             </div>
             
           </div>
         </div>
+
 {% endfor %}
         
 
