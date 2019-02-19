@@ -3,9 +3,25 @@
 {% block title %}Video{% endblock %}
 
 {% block body %}
+      <!--==========================
+    Subscribe Section
+  ============================-->
+  <section id="subscribe">
+    <div class="container wow fadeInUp">
+      <div class="section-header">
+        <h2>SOUSCRIVEZ </h2>
+         <h2>BEAUTY AU 98025</h2>
+        <p>
+        Recevez par SMS les conseils, les astuces et secrets de beauté pour un corps de
+        rêve.
+       </p>
+      </div>
+
+   
+    </div>
     <h1>Video</h1>
 
-    <table class="table">
+  {#   <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -24,7 +40,7 @@
                 <td>{{ video.ladate }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> #}
 
     <a href="{{ path('video_index') }}">back to list</a>
 

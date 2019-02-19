@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astuce liste{% endblock %}
+
+{% block body %}
+ <section id="subscribe">
+    <div class="container wow fadeInUp">
+      <div class="section-header">
+        <h2>. </h2>
+         <h2>BEAUTY AU 98025</h2>
+        <p>
+        Recevez par SMS les conseils, les astuces et secrets de beauté pour un corps de
+        rêve.
+       </p>
+      </div>
+
+    </div>   
+  </section>
+  <!--==========================
+    Venue Section
+  ============================-->
+  <section id="venue" class="wow fadeInUp">
+
+    <div class="container-fluid">
+
+      <div class="section-header">
+        <h2>Astuce video</h2>
+        <p> video démonstration </p>
+      </div>
+
+      <div class="row no-gutters">
+        {# <div class="col-lg-6 venue-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div> #}
+
+        <div class="col-lg-12 venue-info">
+          <div class="row justify-content-center">
+            <div class="col-11 col-lg-8">
+              <h3>Decouvrez quelques astuces beauté en video</h3>
+              <p>La chaine beauty news est disponible sur Youtube</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container-fluid venue-gallery-container">
+      <div class="row no-gutters">
+{% for video in videos %}
+        <div class="col-lg-3 col-md-4">
+          <div class="venue-gallery">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="560" height="315" src="{{ video.lien }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             
+            </div>
+            
+          </div>
+        </div>
+
+{% endfor %}
+        
+
+
+      </div>
+      
+    </div>
+
+  </section>
+
+   {#  <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Image</th>
+                <th>Ladate</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for astuce in astuces %}
+            <tr>
+                <td>{{ astuce.id }}</td>
+                <td>{{ astuce.titre }}</td>
+                <td>{{ astuce.contenu }}</td>
+                <td>{{ astuce.image }}</td>
+                <td>{{ astuce.ladate ? astuce.ladate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ astuce.slug }}</td>
+                <td>
+                    <a href="{{ path('astuce_show', {'id': astuce.id}) }}">Afficher</a>
+                    <a href="{{ path('astuce_edit', {'id': astuce.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enrégistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('astuce_new') }}">Nouveau</a> #}
+{% endblock %}

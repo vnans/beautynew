@@ -26,9 +26,13 @@
       <div class="row">
         <div class="col-lg-6">
           <h2>A propos</h2>
-          <p>Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
-            accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
-            est ut optio sequi unde.</p>
+          <p>Le service Beauty News est un produit de la société Alcalis Technologies CI, qui a
+pour mission de conseiller et sensibiliser la population sur les pratiques de
+beauté.
+C’est une plateforme de diffusion de conseils, d’astuces et de secrets de beauté
+en ligne et par SMS pour la population en quête du bien-être corporel.
+« BEAUTY NEWS » offre à ses abonnés des informations sur les astuces, les
+conseils dans tous les secteurs de la beauté.</p>
         </div>
         <div class="col-lg-3">
          {#  <h3>Where</h3>
@@ -53,7 +57,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6">
+        {# <div class="col-lg-4 col-md-6">
           <div class="speaker">
             <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
             <div class="details">
@@ -118,7 +122,7 @@
             <img src="img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
             <div class="details">
               <h3><a href="speaker-details.html">4 règles d’or pour ménager ma peau sensible
-</a></h3>
+            </a></h3>
               <p></p>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
@@ -144,13 +148,13 @@
               </div>
             </div>
           </div>
-        </div>
-{% for astuce in astuces %}
+        </div> #}
+ {% for astuce in astuces|slice(0,6) %}
           <div class="col-lg-4 col-md-6">
           <div class="speaker">
             <img src="img/{{ astuce.image }} " alt="Speaker 6" class="img-fluid">
             <div class="details">
-              <h3><a href="speaker-details.html">{{ astuce.titre }} </a></h3>
+              <h3><a href="{{ path('astuce_show',{'id': astuce.id}) }}">{{ astuce.titre }} </a></h3>
               <p></p>
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
@@ -163,7 +167,12 @@
         </div>
 
 {% endfor %}
+  
 
+
+      </div>
+      <div class="row">
+        <div class="col-md-4 offset-md-4"> <a href="{{ path('astuce_index2') }}" class="about-btn scrollto"><button class="btn btn-danger ">Encore plus d'astuces</button> </a> </div>
       </div>
     </div>
 
@@ -197,7 +206,7 @@
 
         <!-- Schdule Day 1 -->
         <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-{% for actu  in actus %}
+{% for actu  in actus|slice(0,10) %}
   <div class="row schedule-item">
             <div class="col-md-2"><time> {{ actu.ladate ? actu.ladate|date('H:i:s'): '' }} </time></div>
             <div class="col-md-10">
@@ -208,11 +217,11 @@
 {% endfor %}
           
 
-          <div class="row schedule-item">
+{#           <div class="row schedule-item">
             <div class="col-md-2"><time>10:00 AM</time></div>
             <div class="col-md-10">
               <div class="speaker">
-              {#   <img src="img/speakers/1.jpg" alt="Brenden Legros"> #}
+                <img src="img/speakers/1.jpg" alt="Brenden Legros">
               </div>
               <h4>Keynote <span>Brenden Legros</span></h4>
               <p>Facere provident incidunt quos voluptas.</p>
@@ -223,7 +232,7 @@
             <div class="col-md-2"><time>11:00 AM</time></div>
             <div class="col-md-10">
               <div class="speaker">
-               {#  <img src="img/speakers/2.jpg" alt="Hubert Hirthe"> #}
+                <img src="img/speakers/2.jpg" alt="Hubert Hirthe">
               </div>
               <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
               <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
@@ -234,7 +243,7 @@
             <div class="col-md-2"><time>12:00 AM</time></div>
             <div class="col-md-10">
               <div class="speaker">
-              {#   <img src="img/speakers/3.jpg" alt="Cole Emmerich"> #}
+                <img src="img/speakers/3.jpg" alt="Cole Emmerich">
               </div>
               <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
               <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
@@ -245,19 +254,19 @@
             <div class="col-md-2"><time>02:00 PM</time></div>
             <div class="col-md-10">
               <div class="speaker">
-              {#   <img src="img/speakers/4.jpg" alt="Jack Christiansen"> #}
+                <img src="img/speakers/4.jpg" alt="Jack Christiansen">
               </div>
               <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
               <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
             </div>
-          </div>
+          </div> #}
 
 
 
         </div>
         <!-- End Schdule Day 1 -->
 
-        <!-- Schdule Day 2 -->
+        <!-- Schdule Day 2  non utilisé --> 
         <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
 
           <div class="row schedule-item">
@@ -397,7 +406,7 @@
 
     <div class="container-fluid venue-gallery-container">
       <div class="row no-gutters">
-{% for video in videos %}
+{% for video in videos|slice(0,4) %}
         <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
             <div class="embed-responsive embed-responsive-16by9">
@@ -411,7 +420,7 @@
 {% endfor %}
         
 
-        <div class="col-lg-3 col-md-4">
+        {# <div class="col-lg-3 col-md-4">
           <div class="venue-gallery">
             <div class="embed-responsive embed-responsive-16by9">
              <iframe width="560" height="315" src="https://www.youtube.com/embed/uHQH1DDc1Mg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -474,8 +483,11 @@
              <iframe width="560" height="315" src="https://www.youtube.com/embed/zOQrvnM8Guk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
-        </div>
+        </div> #}
 
+      </div>
+      <div class="row">
+        <div class="col-md-4 offset-md-4"> <a href="{{ path('video_index2') }}" class="about-btn scrollto"><button class="btn btn-danger ">Encore plus de videos</button> </a> </div>
       </div>
     </div>
 
@@ -495,15 +507,15 @@
 
     <div class="owl-carousel gallery-carousel">
 {% for categorie in categories %}
-      <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/{{ categorie.image }}" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/{{ categorie.image }}" alt=""></a>
  
 {% endfor %}
 
-      <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
-      <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
-      <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
-      <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
-      <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
+      <a href="{{ path('astuce_index2') }} " class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
       {# <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
       <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
       <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a> #}
@@ -522,7 +534,7 @@
       </div>
 
       <div class="row no-gutters sponsors-wrap clearfix">
-{% for partenaire in partenaires  %}
+{% for partenaire in partenaires %}
         <div class="col-lg-3 col-md-4 col-xs-6">
           <div class="sponsor-logo">
             <img src="img/{{ Partenaire.image }} " class="img-fluid" alt="">
@@ -593,8 +605,11 @@
     <div class="container wow fadeInUp">
       <div class="section-header">
         <h2>SOUSCRIVEZ </h2>
-         <h2>BEAUTE AU 98025</h2>
-        <p>restez connecté</p>
+         <h2>BEAUTY AU 98025</h2>
+        <p>
+        Recevez par SMS les conseils, les astuces et secrets de beauté pour un corps de
+        rêve.
+       </p>
       </div>
 
       {# <form method="POST" action="#">

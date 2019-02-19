@@ -24,6 +24,15 @@ class VideoController extends AbstractController
             'videos' => $videoRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/video2", name="video_index2", methods={"GET"})
+     */
+    public function index2(VideoRepository $videoRepository): Response
+    {
+        return $this->render('video/index2.html.twig', [
+            'videos' => $videoRepository->findAll(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="video_new", methods={"GET","POST"})

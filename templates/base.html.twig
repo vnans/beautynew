@@ -12,19 +12,19 @@
         <title>{% block title %}Beauty!{% endblock %}</title>
         {% block stylesheets %}
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+        <link href=" {{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800') }} " rel="stylesheet">
 
         <!-- Bootstrap CSS File -->
-        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href=" {{ asset('lib/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet">
 
         <!-- Libraries CSS Files -->
-        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/venobox/venobox.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href=" {{ asset('lib/font-awesome/css/font-awesome.min.css') }} " rel="stylesheet">
+        <link href=" {{ asset('lib/animate/animate.min.css') }} " rel="stylesheet">
+        <link href=" {{ asset('lib/venobox/venobox.css') }} " rel="stylesheet">
+        <link href=" {{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }} " rel="stylesheet">
 
         <!-- Main Stylesheet File -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href=" {{ asset('css/style.css') }} " rel="stylesheet">
 
         <!-- =======================================================
           Theme Name: TheEvent
@@ -44,7 +44,7 @@
 
           <div id="logo" class="pull-left">
             <!-- Uncomment below if you prefer to use a text logo -->
-            <h1><a href="#main">Beauty<span>N</span>ews</a></h1>
+            <h1><a href="{{ path('default') }} ">Beauty<span>N</span>ews</a></h1>
           <!--  <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>-->
           </div>
 
@@ -59,13 +59,22 @@
               <li><a href="#gallery">Categories</a></li>
               <li><a href="#sponsors">Partenaires</a></li>
               <li><a href="#contact">Contact</a></li>
-             {#  <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> #}
+
+              {% if is_granted('ROLE_USER') %}
+                <li class="buy-tickets"><a href=" {{ path('fos_user_security_logout') }} ">Se déconnecter</a></li>
+              {% elseif is_granted('ROLE_ADMIN') %}
+               <li class="buy-tickets"><a href=" {{ path('admin') }} ">Espace admin</a></li> 
+              {% else %}
+              <li class="buy-tickets"><a href=" {{ path('fos_user_security_login') }} ">Se connecter</a></li>
+              {% endif %}
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
       </header><!-- #header -->
 
-        {% block body %}{% endblock %}
+        {% block body %}
+
+        {% endblock %}
 
 
 
@@ -149,21 +158,21 @@
         <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
         {% block javascripts %}
         <!-- JavaScript Libraries -->
-        <script src="lib/jquery/jquery.min.js"></script>
-        <script src="lib/jquery/jquery-migrate.min.js"></script>
-        <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/superfish/hoverIntent.js"></script>
-        <script src="lib/superfish/superfish.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/venobox/venobox.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src=" {{ asset('lib/jquery/jquery.min.js') }} "></script>
+        <script src=" {{ asset('lib/jquery/jquery-migrate.min.js') }} "></script>
+        <script src=" {{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
+        <script src=" {{ asset('lib/easing/easing.min.js') }} "></script>
+        <script src=" {{ asset('lib/superfish/hoverIntent.js') }} "></script>
+        <script src=" {{ asset('lib/superfish/superfish.min.js') }} "></script>
+        <script src=" {{ asset('lib/wow/wow.min.js') }} "></script>
+        <script src=" {{ asset('lib/venobox/venobox.min.js') }} "></script>
+        <script src=" {{ asset('lib/owlcarousel/owl.carousel.min.js') }}" ></script>
 
         <!-- Contact Form JavaScript File -->
-        <script src="contactform/contactform.js"></script>
+        <script src=" {{ asset('contactform/contactform.js') }} "></script>
 
         <!-- Template Main Javascript File -->
-        <script src="js/main.js"></script>
+        <script src=" {{ asset('js/main.js') }} "></script>
         {% endblock %}
     </body>
 </html>

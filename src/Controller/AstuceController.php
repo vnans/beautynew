@@ -25,6 +25,15 @@ class AstuceController extends AbstractController
             'astuces' => $astuceRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/index2", name="astuce_index2", methods={"GET"})
+     */
+    public function index2(AstuceRepository $astuceRepository): Response
+    {
+        return $this->render('astuce/index2.html.twig', [
+            'astuces' => $astuceRepository->findAll(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="astuce_new", methods={"GET","POST"})

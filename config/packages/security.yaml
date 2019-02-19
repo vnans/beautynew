@@ -38,4 +38,6 @@ security:
          - { path: ^/categorie/new, roles: ROLE_ADMIN }
          - { path: ^/contact/new, roles: ROLE_ADMIN }
          - { path: ^/partenaire/new, roles: ROLE_ADMIN }
+         - { path: ^/astuce/index2, roles: ROLE_USER }
+         - { path: ^/video/index2, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }

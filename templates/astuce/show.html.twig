@@ -3,6 +3,60 @@
 {% block title %}Astuce{% endblock %}
 
 {% block body %}
+ <main id="main" class="main-page">
+  <!--==========================
+    Subscribe Section
+  ============================-->
+  <section id="subscribe">
+    <div class="container wow fadeInUp">
+      <div class="section-header">
+        <h2>SOUSCRIVEZ </h2>
+         <h2>BEAUTY AU 98025</h2>
+        <p>
+        Recevez par SMS les conseils, les astuces et secrets de beauté pour un corps de
+        rêve.
+       </p>
+      </div>
+
+   
+    </div>
+  </section>
+
+    <!--==========================
+      Speaker Details Section
+    ============================-->
+    <section id="speakers-details" class="wow fadeIn">
+      <div class="container">
+        <div class="section-header">
+          <h2>{{ astuce.titre }}</h2>
+          <p>{{ astuce.titre }}.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img src=" {{ asset('img/')  }}{{ astuce.image }}  " alt=" " class="img-fluid">
+          </div>
+
+          <div class="col-md-6">
+            <div class="details">
+              <h2>{{ astuce.titre }}</h2>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+              <p>{{ astuce.contenu }}</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+{# 
     <h1>Astuce</h1>
 
     <table class="table">
@@ -38,5 +92,5 @@
 
     <a href="{{ path('astuce_edit', {'id': astuce.id}) }}">edit</a>
 
-    {{ include('astuce/_delete_form.html.twig') }}
+    {{ include('astuce/_delete_form.html.twig') }} #}
 {% endblock %}
