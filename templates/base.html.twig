@@ -60,10 +60,10 @@
               <li><a href="#sponsors">Partenaires</a></li>
               <li><a href="#contact">Contact</a></li>
 
-              {% if is_granted('ROLE_USER') %}
-                <li class="buy-tickets"><a href=" {{ path('fos_user_security_logout') }} ">Se déconnecter</a></li>
-              {% elseif is_granted('ROLE_ADMIN') %}
-               <li class="buy-tickets"><a href=" {{ path('admin') }} ">Espace admin</a></li> 
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="buy-tickets"><a href=" {{ path('admin') }} "> Espace admin </a></li>
+              {% elseif not is_granted('ROLE_USER') == false %}
+               <li class="buy-tickets"><a href=" {{ path('fos_user_security_logout') }} ">Se déconnecter </a></li> 
               {% else %}
               <li class="buy-tickets"><a href=" {{ path('fos_user_security_login') }} ">Se connecter</a></li>
               {% endif %}
